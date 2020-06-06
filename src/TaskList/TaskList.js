@@ -2,6 +2,16 @@ import React from 'react';
 import TaskListElement from "./TaskListElement";
 
 function TaskList(props) {
+    const deleteTask = (id)=>{
+        props.deleteTask(id);
+    }
+    const elementPriorityDecrease = (id) =>{
+        props.elementPriorityDecrease(id);
+
+    }
+    const elementPriorityIncrease = (id) =>{
+        props.elementPriorityIncrease(id);
+    }
     return (
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
@@ -12,7 +22,10 @@ function TaskList(props) {
 
             {props.taskList.map((el) =>
 
-                <TaskListElement el={el}/>
+                <TaskListElement el={el} deleteTask = {deleteTask}
+                                 elementPriorityDecrease = {elementPriorityDecrease}
+                                 elementPriorityIncrease = {elementPriorityIncrease}
+                />
             )}
         </div>
 
