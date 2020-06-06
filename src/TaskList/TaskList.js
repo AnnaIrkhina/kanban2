@@ -12,6 +12,13 @@ function TaskList(props) {
     const elementPriorityIncrease = (id) =>{
         props.elementPriorityIncrease(id);
     }
+    const statusDecrease = (id) =>{
+        props.statusDecrease(id);
+
+    }
+    const statusIncrease = (id) =>{
+        props.statusIncrease(id);
+    }
     return (
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
@@ -29,6 +36,8 @@ function TaskList(props) {
                 <TaskListElement el={el} deleteTask = {deleteTask}
                                  elementPriorityDecrease = {elementPriorityDecrease}
                                  elementPriorityIncrease = {elementPriorityIncrease}
+                                 statusDecrease = {statusDecrease}
+                                 statusIncrease = {statusIncrease}
                 />
             )}
         </div>

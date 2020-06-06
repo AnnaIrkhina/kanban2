@@ -15,6 +15,14 @@ function TaskListElement(props) {
         props.elementPriorityDecrease(props.el.id);
     }
 
+    const statusIncrease = () => {
+        props.statusIncrease(props.el.id)
+    }
+
+    const statusDecrease = () => {
+        props.statusDecrease(props.el.id)
+    }
+
     return (
         <div className="card shadow bg-white rounded">
             <div className="card-body">
@@ -51,8 +59,11 @@ function TaskListElement(props) {
                     </div>
 
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button className="btn btn-sm "><i className="fa fa-arrow-left"></i></button>
-                        <button className="btn btn-sm "><i className="fa fa-arrow-right"></i></button>
+                        <button className="btn btn-sm " disabled={props.el.status === 0} onClick={statusDecrease}><i
+                            className="fa fa-arrow-left"></i></button>
+
+                        <button className="btn btn-sm " disabled={props.el.status === 3} onClick={statusIncrease}><i
+                            className="fa fa-arrow-right"></i></button>
                     </div>
                 </div>
             </div>
