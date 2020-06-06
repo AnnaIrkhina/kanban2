@@ -20,23 +20,23 @@ function Tasks(props) {
         <div className="container">
             <hr/>
             <div className="row">
-                <TaskList status='Todo'
-                          taskList={props.taskList.filter(el => el.status === 'Todo').sort((a, v) => v.priority - a.priority)}
+                <TaskList status="0"
+                          taskList={props.taskList.filter(el => el.status === 0).sort((a, v) => v.priority - a.priority)}
                 deleteTask = {deleteTask}
                           elementPriorityDecrease = {elementPriorityDecrease}
                           elementPriorityIncrease = {elementPriorityIncrease}
                 />
-                <TaskList status = 'In progress' taskList = {props.taskList.filter(el=> el.status === 'In progress').sort((a,v)=>v.priority-a.priority)}
+                <TaskList status ={1} taskList = {props.taskList.filter(el=> el.status === 1).sort((a,v)=>v.priority-a.priority)}
                           deleteTask = {deleteTask}
                           elementPriorityDecrease = {elementPriorityDecrease}
                           elementPriorityIncrease = {elementPriorityIncrease}
                 />
-                <TaskList status = 'Review' taskList = {props.taskList.filter(el=> el.status === 'Review').sort((a,v)=>v.priority-a.priority)}
+                <TaskList status ={2} taskList = {props.taskList.filter(el=> el.status === 2).sort((a,v)=>v.priority-a.priority)}
                           deleteTask = {deleteTask}
                           elementPriorityDecrease = {elementPriorityDecrease}
                           elementPriorityIncrease = {elementPriorityIncrease}
                 />
-                <TaskList status = 'Done' taskList = {props.taskList.filter(el=> el.status === 'Done').sort((a,v)=>v.priority-a.priority)}
+                <TaskList status ={3} taskList = {props.taskList.filter(el=> el.status === 3).sort((a,v)=>v.priority-a.priority)}
                           deleteTask = {deleteTask}
                           elementPriorityDecrease = {elementPriorityDecrease}
                           elementPriorityIncrease = {elementPriorityIncrease}

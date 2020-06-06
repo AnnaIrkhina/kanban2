@@ -16,7 +16,11 @@ function TaskList(props) {
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
                 <div className="card-header">
-                    <h5>{props.status}</h5>
+                    <h5>{
+                        props.status === 0? "Todo":
+                            props.status === 1? "In propgres":
+                                props.status === 2 ? "Review": "Done"
+                    }</h5>
                 </div>
             </div>
 

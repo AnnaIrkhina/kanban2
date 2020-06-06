@@ -11,42 +11,42 @@ const taskListDefoult = [
         name: 'Task 1',
         description: 'To do Task 1',
         priority: 1,
-        status: 'Done'
+        status: 0
     },
     {
         id: Math.random(),
         name: 'Task 2',
         description: 'To do Task 2',
         priority: 2,
-        status: 'Done'
+        status: 1
     },
     {
         id: Math.random(),
         name: 'Task 3',
         description: 'To do Task 3',
         priority: 3,
-        status: 'Todo'
+        status: 2
     },
     {
         id: Math.random(),
         name: 'Task 4',
         description: 'To do Task 3',
         priority: 2,
-        status: 'In progress'
+        status: 2
     },
     {
         id: Math.random(),
         name: 'Task 5',
         description: 'To do Task 3',
         priority: 3,
-        status: 'Review'
+        status: 3
     },
     {
         id: Math.random(),
         name: 'Task 6',
         description: 'To do Task 3',
         priority: 2,
-        status: 'Todo'
+        status: 3
     },
 ]
 
@@ -55,7 +55,7 @@ function App() {
     const [taskList, setTaskList] = useState(taskListDefoult);
     const createTask = (title, description)=>{
         const updatedTaskList = [... taskList];
-        updatedTaskList.push({name: title, id:Math.random(), description:description, status:'Todo', priority:1});
+        updatedTaskList.push({name: title, id:Math.random(), description:description, status:0, priority:1});
         setTaskList(updatedTaskList);
     }
     const deleteTask = (id) =>{
