@@ -1,43 +1,32 @@
 import React from 'react';
 import TaskListElement from "./TaskListElement";
 
+
+
 function TaskList(props) {
-    const deleteTask = (id)=>{
-        props.deleteTask(id);
-    }
-    const elementPriorityDecrease = (id) =>{
-        props.elementPriorityDecrease(id);
 
-    }
-    const elementPriorityIncrease = (id) =>{
-        props.elementPriorityIncrease(id);
-    }
-    const statusDecrease = (id) =>{
-        props.statusDecrease(id);
-
-    }
-    const statusIncrease = (id) =>{
-        props.statusIncrease(id);
-    }
     return (
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
-                <div className="card-header">
-                    <h5>{
-                        props.status === 0? "Todo":
-                            props.status === 1? "In propgres":
-                                props.status === 2 ? "Review": "Done"
-                    }</h5>
+                <div className="row card-title">
+                    <div className="col-8">
+                        <h5>{props.status}</h5>
+                    </div>
+
+                    <div className="col">
+                        <h5>{props.taskList.length}</h5>
+                    </div>
                 </div>
             </div>
 
             {props.taskList.map((el) =>
 
-                <TaskListElement el={el} deleteTask = {deleteTask}
-                                 elementPriorityDecrease = {elementPriorityDecrease}
-                                 elementPriorityIncrease = {elementPriorityIncrease}
-                                 statusDecrease = {statusDecrease}
-                                 statusIncrease = {statusIncrease}
+                <TaskListElement el={el} deleteTask={props.deleteTask}
+                                 elementPriorityDecrease={props.elementPriorityDecrease}
+                                 elementPriorityIncrease={props.elementPriorityIncrease}
+                                 changePriority={props.changePriority}
+                                 statusDecrease={props.statusDecrease}
+                                 statusIncrease={props.statusIncrease}
                 />
             )}
         </div>
