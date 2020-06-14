@@ -2,7 +2,6 @@ import React from 'react';
 import TaskListElement from "./TaskListElement";
 
 
-
 function TaskList(props) {
 
     return (
@@ -10,7 +9,14 @@ function TaskList(props) {
             <div className="card shadow bg-white rounded">
                 <div className="card-header">
 
-                        <h5>{props.status} {props.taskList.length}</h5>
+                    <h5>
+                        <dif className="float-left">
+                            {props.status}
+                        </dif>
+                        <dif className="float-right">
+                            {props.taskList.length}
+                        </dif>
+                    </h5>
 
                 </div>
             </div>

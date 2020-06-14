@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const btnStylePriority = ['btn btn-success', 'btn btn-warning','btn btn-danger']
+const btnStylePriority = ['btn btn-sm btn-success', 'btn btn-sm btn-warning','btn btn-sm btn-danger']
 
 const priorities = ['Low', 'Medium', 'High']
 
@@ -69,7 +69,7 @@ function TaskListElement(props) {
     return (
         <div className="card shadow bg-white rounded">
             <div className="card-header">
-                <h5 class="card-title">{props.el.name}
+                <div>{props.el.name}
                     <button type="button" className="btn btn-sm float-right" onClick={deleteTask}>
                         {/*<i class="fa fa-trash-o"></i>*/}
                         {deleteTask1}
@@ -81,30 +81,30 @@ function TaskListElement(props) {
                     </button>
 
 
-                </h5>
+                </div>
             </div>
             <div className="card-body">
 
                 <p className="card-text">{props.el.description}</p>
 
 
-                <hr/>
+
 
 
                 <select width = "300px" class={btnStylePriority[props.el.priority]} name="priorities" id="priorities" onChange={onPriorityChanged} value={priorities[props.el.priority]}>
-                    <option  width = "300px" class="btn btn-danger" value="High">High</option>
-                    <option  width = "300px" class="btn btn-success" value="Medium">Medium</option>
-                    <option  width = "300px" class="btn btn-warning" value="Low">Low</option>
+                    <option  width = "300px" class="btn btn-sm btn-danger" value="High">High</option>
+                    <option  width = "300px" class="btn btn-sm  btn-success" value="Medium">Medium</option>
+                    <option  width = "300px" class="btn btn-sm btn-warning" value="Low">Low</option>
 
                 </select>
 
 
-                <button className="btn  float-left" disabled={props.el.status === 'Todo'} onClick={statusDecrease}>
+                <button className="btn btn-sm float-left" disabled={props.el.status === 'Todo'} onClick={statusDecrease}>
                     {/*<i className="fa fa-arrow-left"></i>*/}
                     {arrowLeft}
                     </button>
 
-                <button className="btn   float-right" disabled={props.el.status === 'Done'} onClick={statusIncrease}>
+                <button className="btn btn-sm  float-right" disabled={props.el.status === 'Done'} onClick={statusIncrease}>
                     {/*<i className="fa fa-arrow-right"></i>*/}
                     {arrowRight}
                 </button>
