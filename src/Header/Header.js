@@ -50,18 +50,15 @@ function Header(props) {
     return (
 
         <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1>Kanban </h1>
-                </div>
-                <div class="col float-right">
-                    <h1>{today}</h1>
-                </div>
-            </div>
+
+            <h1>Kanban </h1>
+
 
             {!isOpenCreateTaskForm &&
-            <button className="btn btn-primary" onClick={openCreateTaskForm}>Create Task</button>}
 
+                    <button className="btn btn-primary" onClick={openCreateTaskForm}>Create Task</button>
+
+                        }
             {isOpenCreateTaskForm &&
 
             <form>
