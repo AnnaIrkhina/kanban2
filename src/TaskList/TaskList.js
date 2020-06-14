@@ -8,14 +8,10 @@ function TaskList(props) {
     return (
         <div className="col-sm">
             <div className="card shadow bg-white rounded">
-                <div className="row card-title">
-                    <div className="col-8">
-                        <h5>{props.status}</h5>
-                    </div>
+                <div className="card-header">
 
-                    <div className="col">
-                        <h5>{props.taskList.length}</h5>
-                    </div>
+                        <h5>{props.status} {props.taskList.length}</h5>
+
                 </div>
             </div>
 
