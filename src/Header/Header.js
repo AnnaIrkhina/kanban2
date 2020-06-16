@@ -11,7 +11,7 @@ const curYear = objToday.getFullYear();
 
 const today = dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
 
-const btnStylePriority = ['btn btn-sm btn-success', 'btn btn-sm btn-warning','btn btn-sm btn-danger']
+const btnStylePriority = ['custom-select  btn-success', 'custom-select  btn-warning','custom-select  btn-danger']
 
 const priorities = ['Low', 'Medium', 'High']
 
@@ -74,18 +74,19 @@ function Header(props) {
             {isOpenCreateTaskForm &&
 
             <form>
-                <div class="form-group" width="50%">
+                <div class="form-group card-group">
                     <label htmlFor="exampleInpu email1">Title</label>
                     <input type="text" class="form-control" onChange={onChange} value={taskInput}/>
                     <label htmlFor="exampleInpu email1">Description</label>
                     <input type="text" className="form-control" onChange={onChangeDescription}
                            value={taskInputDescription}/>
                     <label htmlFor="exampleInpu email1">Priority</label>
+
                     <select width="300px" className={btnStylePriority[priority]} name="priorities"
-                            id="priorities" onChange={onPriorityChanged} value={priorities[priority]}>
-                        <option width="300px" className="btn btn-sm btn-danger" value="High">High</option>
-                        <option width="300px" className="btn btn-sm  btn-success" value="Medium">Medium</option>
-                        <option width="300px" className="btn btn-sm btn-warning" value="Low">Low</option>
+                                                id="priorities" onChange={onPriorityChanged} value={priorities[priority]}>
+                        <option width="300px" className=" btn-danger" value="High">High</option>
+                        <option width="300px" className=" btn-success" value="Medium">Medium</option>
+                        <option width="300px" className="  btn-warning" value="Low">Low</option>
 
                     </select>
                 </div>
