@@ -72,9 +72,9 @@ function App() {
 
 
     }
-    const createTask = (title, description)=>{
+    const createTask = (title, description, priorityID)=>{
         const updatedTaskList = [... taskList];
-        updatedTaskList.push({name: title, id:Math.random(), description:description, status:'Todo', priority:1});
+        updatedTaskList.push({name: title, id:Math.random(), description:description, status:'Todo', priority: priorityID});
         setTaskList(updatedTaskList);
         recalcTaskStatus(updatedTaskList);
 

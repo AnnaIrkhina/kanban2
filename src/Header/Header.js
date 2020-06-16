@@ -11,11 +11,16 @@ const curYear = objToday.getFullYear();
 
 const today = dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
 
+const btnStylePriority = ['btn btn-sm btn-success', 'btn btn-sm btn-warning','btn btn-sm btn-danger']
+
+const priorities = ['Low', 'Medium', 'High']
+
 
 function Header(props) {
     const [isOpenCreateTaskForm, setIsOpenCreateTaskForm] = useState(false);
     const [taskInput, setTaskInput] = useState("");
     const [taskInputDescription, setTaskInputDescription] = useState("");
+    const [priority, setPriority] = useState(1);
 
     const [isActiveBtnTaskCreate, setIsActiveBtnTaskCreate] = useState(false);
     const openCreateTaskForm = () => {
@@ -32,11 +37,12 @@ function Header(props) {
     const taskSubmit = (e) => {
         e.preventDefault();
         console.log(taskInput, taskInputDescription);
-        props.createTask(taskInput, taskInputDescription);
+        props.createTask(taskInput, taskInputDescription, priority);
         setIsOpenCreateTaskForm(false);
         setIsActiveBtnTaskCreate(false);
         setTaskInput("");
         setTaskInputDescription("");
+        setPriority(1);
 
     }
     const taskReset = (e) => {
@@ -45,6 +51,12 @@ function Header(props) {
         setIsActiveBtnTaskCreate(false);
         setTaskInput("");
         setTaskInputDescription("");
+        setPriority(1);
+    }
+
+    const onPriorityChanged = (e)=>{
+        setPriority(priorities.indexOf(e.target.value));
+
     }
 
     return (
@@ -62,12 +74,20 @@ function Header(props) {
             {isOpenCreateTaskForm &&
 
             <form>
-                <div class="form-group">
+                <div class="form-group" width="50%">
                     <label htmlFor="exampleInpu email1">Title</label>
                     <input type="text" class="form-control" onChange={onChange} value={taskInput}/>
                     <label htmlFor="exampleInpu email1">Description</label>
                     <input type="text" className="form-control" onChange={onChangeDescription}
                            value={taskInputDescription}/>
+                    <label htmlFor="exampleInpu email1">Priority</label>
+                    <select width="300px" className={btnStylePriority[priority]} name="priorities"
+                            id="priorities" onChange={onPriorityChanged} value={priorities[priority]}>
+                        <option width="300px" className="btn btn-sm btn-danger" value="High">High</option>
+                        <option width="300px" className="btn btn-sm  btn-success" value="Medium">Medium</option>
+                        <option width="300px" className="btn btn-sm btn-warning" value="Low">Low</option>
+
+                    </select>
                 </div>
                 <button type="submit" className="btn btn-primary"
                         onClick={taskSubmit}
